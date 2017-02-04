@@ -39,6 +39,11 @@ impl<'s, S> ops::Add<S> for StringBuf where S: Into<&'s str> {
     }
 }
 
+impl<'s, S> ops::AddAssign<S> for StringBuf where S: Into<&'s str> {
+    fn add_assign(&mut self, string: S) {
+        self.0.push_str(string.into());
+    }
+}
 
 #[cfg(test)]
 mod tests {
@@ -51,17 +56,25 @@ mod tests {
     }
 
     #[test]
-    fn append_by_method() {
+    fn append() {
         let sb = StringBuf::new().append("foo").append("bar!");
         assert_eq!("foobar!", String::from(sb));
     }
 
 
     #[test]
-    fn append_by_operator() {
+    fn add() {
         let sb = StringBuf::new();
         let s = String::from("baz!");
         let sb = sb + "foo" + "bar!" + &*s;
         assert_eq!("foobar!baz!", String::from(sb));
+    }
+
+    #[test]
+    fn add_assign() {
+        let mut sb = StringBuf::new();
+        sb += "foo";
+        sb += "bar!";
+        assert_eq!("foobar!", String::from(sb));
     }
 }
