@@ -13,6 +13,13 @@ impl StringBuf {
 }
 
 
+impl ops::Deref for StringBuf {
+    type Target = String;
+
+    fn deref(&self) -> &String {  &self.0  }
+}
+
+
 impl fmt::Display for StringBuf {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(f, "{}", self.0)
@@ -81,4 +88,11 @@ mod tests {
         sb += "bar!";
         assert_eq!("foobar!", String::from(sb));
     }
+
+    #[test]
+    fn deref() {
+        let sb = StringBuf::from("foobar!");
+        assert_eq!("foobar!", *sb);
+    }
+
 }
