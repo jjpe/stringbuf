@@ -3,5 +3,6 @@ name = "stringbuf"
 version = "0.1.0"
 authors = ["Joey Ezechiëls <joey.ezechiels@gmail.com>"]
 license = "MIT"
+description = "An efficient and easy-to-use library to append strings."
 
 [dependencies]
