@@ -20,6 +20,10 @@ impl fmt::Display for StringBuf {
 }
 
 
+impl<'s> From<&'s str> for StringBuf {
+    fn from(string: &'s str) -> StringBuf {  StringBuf(string.to_string())  }
+}
+
 impl From<String> for StringBuf {
     fn from(string: String) -> StringBuf {  StringBuf(string)  }
 }
