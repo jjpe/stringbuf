@@ -95,4 +95,13 @@ mod tests {
         assert_eq!("foobar!", *sb);
     }
 
+    #[test]
+    fn monster() {
+        // This just combines lots of StringBuf operations.
+        let mut sb = StringBuf::from("foo!bar!");
+        sb = sb + "baz!" + "qux!";
+        sb += "quux!";
+        assert_eq!("foo!bar!baz!qux!quux!corge!", *sb.append("corge!"));
+    }
+
 }
