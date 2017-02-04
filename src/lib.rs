@@ -1,7 +1,7 @@
 use std::fmt;
 use std::ops;
 
-#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord)]
+#[derive(Clone, Debug, Default, PartialEq, Eq, PartialOrd, Ord)]
 pub struct StringBuf(String);
 
 impl StringBuf {
@@ -103,5 +103,4 @@ mod tests {
         sb += "quux!";
         assert_eq!("foo!bar!baz!qux!quux!corge!", *sb.append("corge!"));
     }
-
 }
