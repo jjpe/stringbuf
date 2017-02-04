@@ -1,3 +1,4 @@
+use std::fmt;
 use std::ops;
 
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord)]
@@ -8,6 +9,13 @@ impl StringBuf {
 
     pub fn append<'s, S: Into<&'s str>>(self, string: S) -> Self {
         self + string.into()
+    }
+}
+
+
+impl fmt::Display for StringBuf {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "{}", self.0)
     }
 }
 
