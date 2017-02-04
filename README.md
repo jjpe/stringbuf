@@ -10,7 +10,7 @@ Put this in your `Cargo.toml`:
 
 ```
 [dependencies]
-stringbuf = "0.1.0"
+stringbuf = "0.1.1"
 ```
 
 Usage
