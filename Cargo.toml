@@ -1,8 +1,9 @@
 [package]
 name = "stringbuf"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Joey Ezechiëls <joey.ezechiels@gmail.com>"]
 license = "MIT"
 description = "An efficient and easy-to-use library to append strings."
+repository = "https://github.com/jjpe/stringbuf"
 
 [dependencies]
